@@ -1,0 +1,6 @@
+build/
+dist/
+tj.spec
+venv/
+__pycache__/
+.idea/
