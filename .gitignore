@@ -4,3 +4,7 @@ tj.spec
 venv/
 __pycache__/
 .idea/
+spiders/__pycache__/
+spiders/build/
+spiders/dist/
+spiders/tj.spec
