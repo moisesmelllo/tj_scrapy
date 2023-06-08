@@ -1,9 +1,21 @@
-from scrapy.http import FormRequest
-import scrapy
-from scrapy.utils.project import get_project_settings
-from scrapy.crawler import CrawlerProcess
-from interface import interface
 import PySimpleGUI as sg
+import scrapy
+import scrapy.core.scraper
+import scrapy.utils.misc
+from scrapy.crawler import CrawlerProcess
+from scrapy.http import FormRequest
+from scrapy.utils.project import get_project_settings
+from json import JSONDecodeError
+
+from interface import interface
+
+
+def warn_on_generator_with_return_value_stub(spider, callable):
+    pass
+
+
+scrapy.utils.misc.warn_on_generator_with_return_value = warn_on_generator_with_return_value_stub
+scrapy.core.scraper.warn_on_generator_with_return_value = warn_on_generator_with_return_value_stub
 
 
 class TjspspiderSpider(scrapy.Spider):

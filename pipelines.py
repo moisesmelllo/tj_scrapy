@@ -4,10 +4,11 @@
 # See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 
 
+import openpyxl
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
-from scrapy_tjsp.settings import XLSX_PATH
-import openpyxl
+
+from scrapy_tj.settings import XLSX_PATH
 
 CAMPOS = ['NUMERO DO PROCESSO', 'CIFRA', 'VALOR', 'PARTE', 'SITUAÇÃO']
 

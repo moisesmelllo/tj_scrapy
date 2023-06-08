@@ -9,8 +9,8 @@
 
 BOT_NAME = "tjspfinalversion"
 
-SPIDER_MODULES = ["scrapy_tjsp.spiders"]
-NEWSPIDER_MODULE = "scrapy_tjsp.spiders"
+SPIDER_MODULES = ["scrapy_tj.spiders"]
+NEWSPIDER_MODULE = "scrapy_tj.spiders"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = "tjsp (+http://www.yourdomain.com)"
@@ -59,21 +59,26 @@ ROBOTSTXT_OBEY = False
 #    "scrapy.extensions.telnet.TelnetConsole": None,
 # }
 
-
-import os
-
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    "scrapy_tjsp.pipelines.TjspPipeline": 300,
+    "scrapy_tj.pipelines.TjspPipeline": 300,
 }
 
-
+import os
 # Obtém o caminho absoluto do script Python em execução
+import sys
 
-XLSX_PATH = 'dados.xlsx'
+# Obtém o caminho do diretório onde o executável está sendo executado
+diretorio_executavel = os.path.dirname(sys.executable)
+if not os.path.exists(diretorio_executavel):
+    os.makedirs(diretorio_executavel)
+# Define o nome do arquivo a ser salvo
+nome_arquivo = "dados.xlsx"
+
+# Define o caminho completo do arquivo usando o diretório do executável
+XLSX_PATH = os.path.join(diretorio_executavel, nome_arquivo)
 print(XLSX_PATH)
-
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
 # AUTOTHROTTLE_ENABLED = True

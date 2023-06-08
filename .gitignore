@@ -1,0 +1,5 @@
+__pycache__/
+spiders/__pycache__/
+spiders/build/
+spiders/dist/
+spiders/tj.spec
